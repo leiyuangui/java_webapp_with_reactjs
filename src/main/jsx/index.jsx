@@ -23,14 +23,13 @@ ReactDOM.render(
     <BrowserRouter basename={CONTEXT_PATH}>
       <div>
         <Switch>
-          <Route path="/login" component={LoginContainer}/>
-          <Route path="/home" component={HomeContainer}/>
+          <Route exact path="/login" component={LoginContainer}/>
+          <Route exact path="/" component={HomeContainer}/>
+          <Route exact path="/home" component={HomeContainer}/>
           <Route path="*" component={NotFound}/>
         </Switch>
       </div>
     </BrowserRouter>
   </Provider>,
-  document.getElementById(
-    'app'
-  )
+  document.getElementById('app')
 );
