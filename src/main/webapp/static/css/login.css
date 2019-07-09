@@ -1,0 +1,39 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	padding: 40px 15px 15px 15px;
+}
+
+body>.container {
+	padding: 40px 15px 15px 15px;
+}
+
+.login-form
+{
+	width: 350px;
+	margin-top: 70px;
+	margin: 0px auto;
+}
+
+form div:first-child
+{
+	margin-bottom: 15px;
+}
+
+.input-group   
+{
+	height: 40px;
+}
+
+.input-group input
+{
+	height: 40px;
+}
+
+.input-group-addon
+{
+	background-color:  #f2f3f4;
+}
