@@ -4,7 +4,7 @@ As the JavaScript world is moving towards using build tools to bundle JS code wi
 
 More specifically, there are two issues. One is that how to incorporate the front-end build tools into our Maven pom.xml, so that we can build everything into our beloved war file.  The other is that how to enable hot deployment for our front-end changes, so that we don't have to restart the dev server for every changes we made.
 
-This is a sample setup that I used to overcome these issues. I am using plain Java Servelts at backend and ReactJS/Redux as the frontend stack.
+This is a sample setup that I used to overcome these issues. I am using plain Java Servlets at backend and ReactJS/Redux as the frontend stack.
 
 ### How to run
 
@@ -59,7 +59,7 @@ This setup uses the frontend-maven-plugin (https://github.com/eirslett/frontend-
 			</plugin>
 ```
 
-#### Webpack build configuration
+#### Webpack configuration
 
 Working with package.json, the following configuration specifies that it will build files with .js/.jsx extensions and use babel loader to load jsx files. The output file name will be app-bundle.js and the output folder is target/java_webapp_with_reactjs/assets/.
 
@@ -96,17 +96,17 @@ const common = {
 With this setup,  the bundled js file can be simply included into index.jsp: 
 
 ```jsp
-<body>
+   <body>
         <div id="app"></div>
         <script type="text/javascript" src="<%=request.getContextPath()%>/assets/app-bundle.js"></script>
-      </body>
+  </body>
 ```
 
 
 
 #### Webpack dev server settings for hot deployment
 
-This settings (in  webpack.config.js) defines the devServer port and the proxy settings. The proxy configuration is crucial for enabling front-end changes to be automatically refreshed in browser. The proxy target is the embbed jetty server, which watches code changes at backend side. With this setup, accessing http://localhost:9090 would have all the changes from both frontend and backend. 
+These settings (in  webpack.config.js) define the devServer port and the proxy settings. The proxy configuration is crucial for enabling front-end changes to be automatically refreshed in browser. The proxy target is the embedded jetty server, which watches code changes at backend side. With this setup, accessing http://localhost:9090 would have all the changes from both frontend and backend. 
 
 ```js
 const merge = require('webpack-merge');
